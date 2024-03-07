@@ -1,8 +1,8 @@
 import pandas as pd
 
-df1 = pd.read_csv('Orders.csv')
+df1 = pd.read_csv('Analisis excel/test_shopee_last_try/Orders.csv')
 df1['Order Date'] = pd.to_datetime(df1['Order Date'])
-df2 = pd.read_csv('Customer.csv')
+df2 = pd.read_csv('Analisis excel/test_shopee_last_try/Customer.csv')
 df = pd.merge(df1, df2, on='Customer ID', how='inner')
 # print(df)
 filter = df1.groupby('Customer ID')['Order Date'].min().reset_index(name='tanggal_beli_pertama')

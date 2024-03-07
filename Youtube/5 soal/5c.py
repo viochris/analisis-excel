@@ -1,7 +1,7 @@
 import pandas as pd
 
-df1 = pd.read_csv('Customer.csv')
-df2 = pd.read_csv('Orders.csv')
+df1 = pd.read_csv('Analisis excel/Youtube/5 soal/Customer.csv')
+df2 = pd.read_csv('Analisis excel/Youtube/5 soal/Orders.csv')
 # df2 = df2.sort_values('Order ID')
 df2['Order Date'] = pd.to_datetime(df2['Order Date'])
 

@@ -1,7 +1,7 @@
 import pandas as pd
 
 
-df = pd.read_csv('Orders.csv')
+df = pd.read_csv('Analisis excel/Youtube/5 soal/Orders.csv')
 df['Order Date'] = pd.to_datetime(df['Order Date'])
 print(df)
 

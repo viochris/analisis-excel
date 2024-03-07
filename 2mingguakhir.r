@@ -7,11 +7,17 @@ print(now)
 today <- today()
 print(today)
 
+hari_ini <- ymd('2024-03-03')
+
 two_weeks_ago1 <- now - weeks(2)
 print(two_weeks_ago1)
 
+
 two_weeks_ago2 <- today - weeks(2)
 print(two_weeks_ago2)
+
+two_weeks_ago3 <- hari_ini - weeks(2)
+print(two_weeks_ago3)
 
 df <- data.frame(
     Date = c("2024-02-25", "2024-03-16", "2024-02-01", "2024-05-10", "2024-04-01"),
