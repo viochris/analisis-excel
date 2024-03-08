@@ -1,5 +1,6 @@
 import pandas as pd
 from datetime import datetime
+from datetime import date
 
 # Contoh DataFrame dengan kolom tanggal
 data = {'tanggal': ['2024-01-15', '2024-02-20', '2024-03-25', '2024-01-30']}
@@ -34,6 +35,11 @@ print(df)
 # tanggal_sekarang = datetime.strptime(sekarang, '%Y-%m-%d')
 # df['didf'] = tanggal_sekarang - df['tanggal']
 # print(df)
+
+
+sekarang = datetime.combine(date.today(), datetime.min.time())
+df['didf'] = sekarang - df['tanggal']
+print(df)
 
 hari = datetime(2024,2,20)
 df['dif2'] = hari - df['tanggal']
