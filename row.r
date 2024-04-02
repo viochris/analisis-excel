@@ -12,9 +12,12 @@ df <- data.frame(A = c(1, 2, 3),
 print(df)
 cat()
 
+
 print(colnames(df))
 print(rownames(df))
 row_sums <- rowSums(df)
+print(row_sums)
+row_sums <- row_sums(df)
 print(row_sums)
 row_means <- rowMeans(df)
 print(row_means)
