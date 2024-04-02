@@ -17,9 +17,21 @@ df = df[df['is_valid'] == 1]
 df['order_date'] = pd.to_datetime(df["order_date"])
 df = df[df["order_date"].dt.year == 2022]
 df = df[df["order_date"].dt.month.between(10,12)]
-df['month'] = df["order_date"].dt.month.replace((10,11,12), ('oktober', 'november', 'desember'))
 print(df)
 
 tabel_days = df[df["order_date"].dt.day_of_week < 5]
+tabel_days = tabel_days['before_discount'].mean().round(2)
 tabel_end = df[df["order_date"].dt.day_of_week >= 5]
-tabel_end = tabel_end.groupby('month')['before_discount'].mean().round(2).reset_index(name='weekend')
+tabel_end = tabel_end['before_discount'].mean().round(2)
+
+
+data = {
+    'Total': ['Total 3 Bulan'],
+    'weekdays': [tabel_days],
+    'weekend': [tabel_end],
+    'Keuntungan/kerugian': [tabel_end - tabel_days],
+    'Persentase': [round((tabel_end - tabel_days) / tabel_end * 100, 2)]
+}
+df = pd.DataFrame(data)
+print(df)
+

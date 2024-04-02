@@ -1,4 +1,5 @@
 import pandas as pd
+import seaborn as sns
 from sqlite3 import connect
 import numpy as np
 import matplotlib.pyplot as plt
@@ -44,3 +45,4 @@ plt.title('Diagram Penjualan Weekdays vs Weekend In 2022')
 plt.legend()
 plt.grid()
 plt.show()
+

@@ -30,6 +30,16 @@ def persalinan(x,y):
         if y == 'Bidan':
             return 700000
 df['Biaya Persalinan'] = df.apply(lambda row:persalinan(row['Kelas'], row['Persalinan']), axis=1)
+def persalinan2(x,y):
+    if x == 'BPJS' and y == 'Dokter':
+        return 1000000
+    if x == 'BPJS'  and y == 'Bidan':
+        return 500000
+    if x == 'Umum' and y == 'Dokter':
+        return 1500000
+    if x == 'Umum' and  y == 'Bidan':
+        return 700000
+df['Biaya Persalinan2'] = df.apply(lambda row:persalinan2(row['Kelas'], row['Persalinan']), axis=1)
 df['Total Biaya'] = df[['Inap', 'Layanan', 'Biaya Persalinan']].sum(axis=1)
 print(df)
 

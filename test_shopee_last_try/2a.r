@@ -1,11 +1,12 @@
 library(dplyr)
 
-customer <- read.csv("Analisis excel/Youtube/5 soal/Customer.csv")
+customer <- read.csv("Youtube/5 soal/Customer.csv")
 customer <- customer %>% distinct(City, Customer.ID, .keep_all = TRUE)
+
 
 print(head(customer))
 
-order <- read.csv("Analisis excel/Youtube/5 soal/Orders.csv")
+order <- read.csv("Youtube/5 soal/Orders.csv")
 print(head(order))
 cat('\n')
 

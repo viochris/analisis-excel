@@ -11,8 +11,17 @@ data = {
 df = pd.DataFrame(data)
 
 # Groupby, Unstack, dan Plot
+hasil = df.groupby(['order_month', 'brand'])['GMV'].sum()
+print(hasil)
+
+hasil_akhir = pd.pivot_table(df, index='order_month', columns='brand', values='GMV', aggfunc='sum')
+print(hasil_akhir)
+
+hasil = df.groupby(['order_month', 'brand'])['GMV'].sum().unstack()
+print(hasil)
 hasil = df.groupby(['order_month', 'brand'])['GMV'].sum().unstack().plot(kind='bar')
 print(hasil)
+
 
 plt.xlabel('Order Month')
 plt.ylabel('Total GMV')

@@ -1,12 +1,12 @@
 library(dplyr)
 library(tidyr)
 
-customer <- read.csv("Analisis excel/Youtube/5 soal/Customer.csv")
+customer <- read.csv("Youtube/5 soal/Customer.csv")
 customer <- customer %>% group_by(City) %>% reframe(Customer.ID = unique(Customer.ID))
 # customer <- customer %>% group_by(City) %>% summarise(Customer_ID = list(unique(Customer.ID))) %>% unnest(cols = Customer_ID)
 print(head(customer))
 
-order <- read.csv("Analisis excel/Youtube/5 soal/Orders.csv")
+order <- read.csv("Youtube/5 soal/Orders.csv")
 print(head(order))
 cat('\n')
 

@@ -40,3 +40,15 @@ print(df)
 
 pivot = pd.pivot_table(df_asal, index=['AREA', 'CUSTOMER NAME'], values=['BOX QTY', 'TOTAL WEIGHT'], aggfunc=sum, margins=True, margins_name='total').sort_values('AREA')
 print(pivot)
+print(pivot[pivot.index.get_level_values('CUSTOMER NAME') == 'Ufo Yogyakarta'])
+
+
+
+pivot = pd.pivot_table(df_asal, index=['AREA', 'CUSTOMER NAME'], values=['BOX QTY', 'TOTAL WEIGHT'], aggfunc=sum).sort_values('AREA')
+print(pivot)
+
+
+
+
+# pivot = df_asal.groupby(['AREA', 'CUSTOMER NAME'])[['BOX QTY', 'TOTAL WEIGHT']].sum().reset_index().sort_values('AREA', ascending=True)
+# print(pivot)

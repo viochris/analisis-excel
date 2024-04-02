@@ -45,6 +45,7 @@ selected_item_rules = product_association[
     ]
 
 print(selected_item_rules)
+print(selected_item_rules.iloc[0])
 
 if not selected_item_rules.empty:
     selected_item_rules=selected_item_rules.iloc[0]

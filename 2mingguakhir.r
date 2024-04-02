@@ -7,7 +7,11 @@ print(now)
 today <- today()
 print(today)
 
-hari_ini <- ymd('2024-03-03')
+hari_ini <- ymd('2024-03-21')
+print(hari_ini)
+
+waktu_ini <- hms('12:30:45')
+print(waktu_ini)
 
 two_weeks_ago1 <- now - weeks(2)
 print(two_weeks_ago1)

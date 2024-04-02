@@ -16,4 +16,5 @@ df['order_date'] = pd.to_datetime(df['order_date'])
 df = df[df['order_date'].dt.year == 2022]
 print(df)
 hasil = df.groupby('payment_method')['id_x'].nunique().reset_index(name='total').sort_values('total', ascending=False).reset_index(drop=True)
+print(hasil)
 print(hasil.head(5))
