@@ -27,3 +27,20 @@ column <- function(x) {
 df$total4 <- sapply(df$A, column)
 df$total5 <- sapply(df$A, function(x) column(x))
 print(df)
+
+df <- select(df, A,B,C)
+print(df)
+
+kosong <- function(x) {
+    if (x > 0) {
+        return(TRUE)
+    } else if (x == 0) {
+        return(FALSE)
+    }
+}
+
+
+hasil <- apply(df, c(1,2), column)
+print(hasil)
+hasil <- apply(df, c(1,2), kosong)
+print(hasil)

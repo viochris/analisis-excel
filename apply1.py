@@ -21,8 +21,22 @@ df['total3'] = df.apply(lambda col: col['A'] *2, axis=1)
 df['total3a'] = df['A'] *2
 print(df)
 def column(x):
-    return x * 2
+    return x * 2``
 df['total4'] = df['A'].apply(column)
 print(df)
 df['total5'] = df.apply(lambda col: column(col['A']), axis = 1)
 print(df)
+
+df = df.drop('Nama', axis = 1)
+
+def kosong(x):
+    if x == 0:
+        return False
+    if x>0:
+        return True
+
+
+hasil = df.applymap(column)
+print(hasil)
+hasil = df.applymap(kosong)
+print(hasil)
