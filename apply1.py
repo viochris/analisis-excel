@@ -15,8 +15,10 @@ print(df)
 df['total'] = df.apply(lambda col: double_column(col['A'], col['B'], col['C']), axis=1)
 print(df)
 df['total2'] = df.apply(lambda col: col['A'] * col['B'], axis=1)
+df['total2a'] = df['A'] * df['B']
 print(df)
 df['total3'] = df.apply(lambda col: col['A'] *2, axis=1)
+df['total3a'] = df['A'] *2
 print(df)
 def column(x):
     return x * 2

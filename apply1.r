@@ -18,6 +18,7 @@ print(data)
 df$total <- mapply(double_column,df$A, df$B, df$C)
 df$total2 <- df$A * df$B
 df$total3 <- sapply(df$A, function(x) x * 2)
+df$total3a <- df$A * 2
 print(df)
 
 column <- function(x) {
