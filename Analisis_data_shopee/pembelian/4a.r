@@ -23,3 +23,4 @@ hasil <- df %>%
     summarise(jumlah = sum(!is.na(salesman_id))) %>%
     arrange(desc(jumlah))
 print(hasil)
+
