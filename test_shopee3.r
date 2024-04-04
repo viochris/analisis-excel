@@ -12,7 +12,8 @@ print(df)
 print(df_asal)
 
 tabel1 <- inner_join(df, df_asal[c('CUSTOMER CODE', 'CUSTOMER NAME', 'Tax')], by = c('Customer Code'='CUSTOMER CODE'))
-tabel1 <- tabel1 %>% distinct(`Customer Code`, .keep_all = TRUE)
+# tabel1 <- tabel1 %>% distinct(`Customer Code`, .keep_all = TRUE)
+tabel1 <- tabel1[!duplicated(tabel1$`Customer Code`), ]
 print(tabel1)
 
 tabel2 <- inner_join(df[c('Customer Code')], df_asal[c('CUSTOMER CODE', 'BOX QTY', 'TOTAL WEIGHT')], by = c('Customer Code'='CUSTOMER CODE'))
