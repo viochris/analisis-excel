@@ -5,7 +5,7 @@ library(tibble)
 library(ggplot2)
 library(tidyverse)
 
-df <- read_excel('Tes Excel Admin Klinik.xlsx', col_names = c('Nama Pasien', 'Kelas', 'Penanganan', 'Tanggal Masuk', 'Tanggal Keluar'), range = 'C4:G8')
+df <- read_excel('Tes Excel Admin Klinik.xlsx',col_names = c('Nama Pasien', 'Kelas', 'Penanganan', 'Tanggal Masuk', 'Tanggal Keluar'), range = 'C4:G8')
 print(df)
 
 df$`Tanggal Masuk` <- as.Date(df$`Tanggal Masuk`)

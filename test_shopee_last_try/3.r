@@ -1,6 +1,6 @@
 library(dplyr)
 
-order <- read.csv("Analisis excel/Youtube/5 soal/Orders.csv")
+order <- read.csv("Youtube/5 soal/Orders.csv")
 order$Order.Date <- as.Date(order$Order.Date, "%m/%d/%Y")
 order$Ship.Date <- as.Date(order$Ship.Date, "%m/%d/%Y")
 print(head(order))
