@@ -20,6 +20,7 @@ print(df)
 hasil = df.groupby('payment_method')['id_x'].nunique().reset_index(name='total').sort_values('total', ascending=False).reset_index(drop=True)
 top5_payment  = hasil.head(5)
 print(top5_payment)
+print('\n\n\n\n')
 
 df2 = pd.merge(df, df3, left_on='sku_id', right_on='id', how='inner')
 df2 = df2[df2['payment_method'].isin(top5_payment['payment_method'])]

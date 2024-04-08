@@ -20,5 +20,5 @@ df = df[df['order_date'].dt.year == 2022]
 df = df.drop_duplicates('customer_id')
 print(df)
 print('Data Akhir')
-hasil = df[['customer_id', 'registered_date']].reset_index(drop=True)
+hasil = df[['customer_id', 'registered_date']].sort_values('customer_id', ascending=True).reset_index(drop=True)
 print(hasil)
