@@ -18,7 +18,12 @@ df <- filter(df, is_valid == 1, year(order_date) == 2022)
 df <- arrange(df, sku_id)
 # print(head(df))
 
-
+# Penggunaan metode `sort` di Python dan `arrange` di R sebelum operasi 
+# penghapusan duplikat dapat membantu mengurangi perbedaan hasil antara kedua bahasa. 
+# Namun, dalam kasus di mana ada nilai yang sama dalam kolom pengurutan, perbedaan masih 
+# mungkin terjadi karena urutan yang tidak terjamin sama di antara nilai-nilai yang sama.
+# Penggunaan sort dan arrange disarankan karena adanya kerandoman yang membuat urutan tidak terjamin 
+# saat menjalankan merge atau join.
 
 tabel1 <- df %>%
     group_by(sku_name, category) %>%

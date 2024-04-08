@@ -20,6 +20,14 @@ tabel1 = df.groupby(['sku_name', 'category'])[['after_discount', 'qty_ordered']]
 tabel1 = tabel1.sort_values('qty_ordered', ascending=False).reset_index(drop=True).head(10)
 print(tabel1)
 
+# Penggunaan metode `sort` di Python dan `arrange` di R sebelum operasi 
+# penghapusan duplikat dapat membantu mengurangi perbedaan hasil antara kedua bahasa. 
+# Namun, dalam kasus di mana ada nilai yang sama dalam kolom pengurutan, perbedaan masih 
+# mungkin terjadi karena urutan yang tidak terjamin sama di antara nilai-nilai yang sama.
+# Penggunaan sort dan arrange disarankan karena adanya kerandoman yang membuat urutan tidak terjamin 
+# saat menjalankan merge atau join.
+
+
 tabel2 = df.drop_duplicates(['customer_id'])
 tabel2 = tabel2.groupby(['sku_name', 'category'])['customer_id'].nunique().reset_index(name='jumlah pelanggan')
 
