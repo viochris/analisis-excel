@@ -13,6 +13,7 @@ df = pd.merge(df1, df2, left_on='sku_id', right_on='id', how='inner')
 df = df[df['is_valid'] == 1]
 df['order_date'] = pd.to_datetime(df['order_date'])
 df = df[df['order_date'].dt.year == 2022]
+df = df.sort_values('sku_id', ascending=True)
 print(df)
 
 tabel1 = df.groupby(['sku_name', 'category'])[['after_discount', 'qty_ordered']].sum().reset_index()

@@ -11,23 +11,33 @@ query2 <- "SELECT * FROM sku_detail"
 df2 <- dbGetQuery(con, query2)
 dbDisconnect(con)
 
-# df <- inner_join(df1, df2, by= c('sku_id' = 'id'))
-df <- merge(df1, df2, by.x = 'sku_id', by.y = 'id')
+df <- inner_join(df1, df2, by = c("sku_id" = "id"))
+# df <- merge(df1, df2, by.x = 'sku_id', by.y = 'id')
 df$order_date <- ymd(df$order_date)
 df <- filter(df, is_valid == 1, year(order_date) == 2022)
+df <- arrange(df, sku_id)
+# print(head(df))
 
 
-tabel1 <- df %>% group_by(sku_name, category) %>% summarise(after_discount = sum(after_discount), qty_ordered = sum(qty_ordered)) %>% arrange(desc(qty_ordered))
+
+tabel1 <- df %>%
+    group_by(sku_name, category) %>%
+    summarise(after_discount = sum(after_discount), qty_ordered = sum(qty_ordered)) %>%
+    arrange(desc(qty_ordered))
 tabel1 <- head(tabel1, 10)
 
 tabel2 <- distinct(df, customer_id, .keep_all = TRUE)
-tabel2 <- tabel2 %>% group_by(sku_name, category) %>% summarise(jumlah_pelanggan = n_distinct(customer_id))
+tabel2 <- tabel2 %>%
+    group_by(sku_name, category) %>%
+    summarise(jumlah_pelanggan = n_distinct(customer_id))
 
 tabel3 <- df[!duplicated(df$id), ]
-tabel3 <- tabel3 %>% group_by(sku_name, category) %>% summarise(total_order = n_distinct(id))
+tabel3 <- tabel3 %>%
+    group_by(sku_name, category) %>%
+    summarise(total_order = n_distinct(id))
 
 
-tabelawal <- merge(tabel1, tabel2, by = c('sku_name', 'category'))
-tabelakhir <- merge(tabelawal, tabel3, by = c('sku_name', 'category'))
+tabelawal <- merge(tabel1, tabel2, by = c("sku_name", "category"))
+tabelakhir <- merge(tabelawal, tabel3, by = c("sku_name", "category"))
 tabelakhir <- arrange(tabelakhir, desc(qty_ordered))
 print(tabelakhir)
