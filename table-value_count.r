@@ -4,6 +4,8 @@ df <- data.frame(
     Usia = c(30, 25, 35, 40, 30, 34, NA, 35)
 )
 
+
+
 tabel <- table(df$Nama)
 print(tabel)
 
