@@ -51,11 +51,28 @@ df = pd.DataFrame(data)
 print(df)
 print('\n\n\n')
 
-# data = {
-#     'Person1': {'Name': 'John', 'Age': 28, 'Occupation': 'Engineer'},
-#     'Person2': {'Name': 'Alice', 'Age': 24, 'Occupation': 'Data Scientist'},
-#     'Person3': {'Name': 'Bob', 'Age': 32, 'Occupation': 'Teacher'}
-# }
-# df = pd.DataFrame.from_dict(data, orient='index')
-# print(df)
-# print('\n\n\n')
+data = {
+    'Person1': {'Name': 'John', 'Age': 28, 'Occupation': 'Engineer'},
+    'Person2': {'Name': 'Alice', 'Age': 24, 'Occupation': 'Data Scientist'},
+    'Person3': {'Name': 'Bob', 'Age': 32, 'Occupation': 'Teacher'}
+}
+df = pd.DataFrame.from_dict(data, orient='index')
+print(df)
+print('\n\n\n')
+df = pd.DataFrame.from_dict(data)
+print(df)
+print('\n\n\n')
+
+
+data = {
+    'Name': 'John', 
+    'Age': 28, 
+    'Occupation': 'Engineer'
+}
+df = pd.DataFrame({'Keterangan':data})
+print(df)
+
+# saya mendapatkan sebuah kesimpulan. Dalam pembuatan dataframe di python.
+# Ketika sebelah kanan dari titik dua(:) tidak diberi tanda kurung entah kurung kurawa, 
+# siku, kurung biasa, dll, yang sebelah kiri akan menjadi index. ketika diberi kurung, 
+# yang sebelah kiri barulah menjadi kolom. 
