@@ -8,16 +8,12 @@ response = requests.get(url)
 if response.status_code == 200:
     data = response.json()
     
-    df = pd.DataFrame({'USD':data['bpi']['USD']}).T
+    df = pd.DataFrame({
+        'USD': data['bpi']['USD'],
+        'GBP': data['bpi']['GBP'],
+        'EUR': data['bpi']['EUR']
+    })
     print(df)
-
-    
-    df = pd.DataFrame(data['bpi']).T
-    print(df.loc['USD'])
-    
-    
-    df = pd.DataFrame(data['bpi'])
-    print(df['USD'])
     
     
     for key, items in data['time'].items():
