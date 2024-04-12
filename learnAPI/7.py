@@ -1,4 +1,5 @@
 import requests
+import json
 import pandas as pd
 
 url = "https://official-joke-api.appspot.com/random_joke"
@@ -6,7 +7,8 @@ url = "https://official-joke-api.appspot.com/random_joke"
 response = requests.get(url)
 
 if response.status_code == 200:
-    data = response.json()
+    data = json.loads(response.text)
+    # data = response.json()
 
     
     df = pd.DataFrame({
